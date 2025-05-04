@@ -1,5 +1,5 @@
 
-# 📘 Seminario 1: Comparação de Algoritmos de Ordenação em Diferentes Bibliotecas Python
+# Seminario 1: Comparação de Algoritmos de Ordenação em Diferentes Bibliotecas Python
 
 ## Introdução
 
@@ -15,7 +15,7 @@ Neste experimento, iremos avaliar e comparar o desempenho de diferentes implemen
   1. **Números**: vetores de `float` gerados aleatoriamente.  
   2. **Strings**: listas de cadeias de caracteres de comprimento fixo (5 caracteres), também geradas aleatoriamente.
 
-O objetivo é entender como cada abordagem se comporta em termos de **tempo de execução** e **consumo de memória** para bases de grande escala (configuradas aqui com `N = 1_000_000` elementos).
+O objetivo é entender como cada abordagem se comporta em termos de **tempo de execução** e **consumo de memória** para bases de grande escala (configuradas aqui com `N = 10_000_000` elementos).
 
 ## Explicação do Quicksort (Hoare, 1961)
 
@@ -302,7 +302,7 @@ Ao longo deste experimento, comparamos quatro abordagens de ordenação em Pytho
 - **Para produção numérica de alto desempenho e otimização de custos**, use **NumPy** em conjunto com instâncias **Azure** para ordenação de vetores de floats.  
 - **Para cargas heterogêneas que envolvem muitas strings** e onde paralelismo importa (e CPU/memória não são limitantes), prefira **Dask** em Azure/GCP.  
 - **Para análises ad hoc e manipulação de DataFrames**, o **Pandas** é o compromisso certo entre usabilidade e desempenho.  
-- **Reserve a implementação manual de QuickSort** apenas para demonstrações didáticas e depuração conceitual — em cenários reais, bibliotecas otimizadas superam o Python puro.andas teve desempenho intermediário em tempo, mas o uso de memória pode variar.
+- **Reserve a implementação manual de QuickSort** apenas para demonstrações didáticas e depuração conceitual — em cenários reais, bibliotecas otimizadas superam o Python puro. Pandas teve desempenho intermediário em tempo, mas o uso de memória pode variar.
 
 ---
 
