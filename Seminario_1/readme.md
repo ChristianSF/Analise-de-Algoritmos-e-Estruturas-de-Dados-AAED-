@@ -1,5 +1,20 @@
-
 # Seminario 1: Comparação de Algoritmos de Ordenação em Diferentes Bibliotecas Python
+
+## Índice
+
+1. [Introdução](#introdução)  
+2. [Algoritmos e Implementações](#algoritmos-e-implementações)  
+3. [Complexidade Teórica](#complexidade-teórica)  
+4. [Metodologia](#metodologia)  
+5. [Resultados Estatísticos](#resultados-estatísticos)  
+6. [Boxplots de Tempo](#boxplots-de-tempo)  
+7. [Consumo de Memória](#consumo-de-memória)  
+8. [Custos de Execução](#custos-de-execução)  
+9. [Conclusão e Recomendações](#conclusão-e-recomendações)  
+10. [Código-Fonte](#código-fonte)  
+11. [Referências Bibliográficas](#referências-bibliográficas)  
+
+---
 
 ## Introdução
 
@@ -303,6 +318,15 @@ Ao longo deste experimento, comparamos quatro abordagens de ordenação em Pytho
 - **Para cargas heterogêneas que envolvem muitas strings** e onde paralelismo importa (e CPU/memória não são limitantes), prefira **Dask** em Azure/GCP.  
 - **Para análises ad hoc e manipulação de DataFrames**, o **Pandas** é o compromisso certo entre usabilidade e desempenho.  
 - **Reserve a implementação manual de QuickSort** apenas para demonstrações didáticas e depuração conceitual — em cenários reais, bibliotecas otimizadas superam o Python puro. Pandas teve desempenho intermediário em tempo, mas o uso de memória pode variar.
+
+---
+
+## Código-Fonte
+
+O código completo do experimento (notebook e scripts auxiliares) está disponível no GitHub:
+
+- **Repositório**:  
+  https://github.com/ChristianSF/Analise-de-Algoritmos-e-Estruturas-de-Dados-AAED-/tree/main/Seminario_1/code
 
 ---
 
