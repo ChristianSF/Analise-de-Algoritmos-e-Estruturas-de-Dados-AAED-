@@ -306,9 +306,15 @@ Ao longo deste experimento, comparamos quatro abordagens de ordenação em Pytho
 
 ---
 
-## Fontes
-- [Documentação NumPy](https://numpy.org/)
-- [Documentação Pandas](https://pandas.pydata.org/)
-- [Documentação Dask](https://www.dask.org/)
-- [Algorithm 64: Quicksort (Paper Original)](https://dl.acm.org/doi/10.1145/366622.366644)
-- Códigos e benchmarks feitos em ambiente controlado com execução média de 10 rodadas por cenário.
+## Referências Bibliográficas
+
+1. Hoare, C. A. R. (1961). “Quicksort.” *Communications of the ACM*, 4(7), 321–322.  
+2. Cormen, T. H.; Leiserson, C. E.; Rivest, R. L.; Stein, C. (2009). *Introduction to Algorithms* (3ª ed.). MIT Press.  
+3. Harris, C. R. et al. (2020). “Array programming with NumPy.” *Nature*, 585, 357–362.  
+4. McKinney, W. (2018). *Python for Data Analysis* (2ª ed.). O’Reilly Media.  
+5. Dask Development Team. (2024). *Dask: Library for dynamic task scheduling & “Big Data”*. Disponível em: https://docs.dask.org  
+6. McKinney, W.; Bohannon, P.; Gentry, J.; Pandas Development Team. (2024). *pandas — Python Data Analysis Library*. Disponível em: https://pandas.pydata.org  
+7. Jahn, D.; Ritschard, H. (2012). *memory_profiler — monitoramento de memória em Python*. Disponível em: https://github.com/pythonprofilers/memory_profiler  
+8. Amazon Web Services. (2025). *AWS Pricing Calculator*. Disponível em: https://aws.amazon.com/pricing/  
+9. Google Cloud Platform. (2025). *GCP Pricing*. Disponível em: https://cloud.google.com/pricing  
+10. Microsoft Azure. (2025). *Azure Pricing*. Disponível em: https://azure.microsoft.com/pricing 
