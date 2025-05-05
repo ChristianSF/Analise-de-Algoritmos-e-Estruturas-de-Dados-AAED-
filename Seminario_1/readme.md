@@ -110,6 +110,32 @@ def quicksort_manual(arr):
 | Pior caso      | O(n²)        | O(n)         |
 
 #### NumPy
+
+Para o NumPy, utilizamos a função `np.sort()` com o parâmetro `kind='quicksort'`, que internamente utiliza uma implementação otimizada do algoritmo QuickSort escrita em C++.
+
+Essa implementação é parte do núcleo da biblioteca e pode ser encontrada no repositório oficial do NumPy, no diretório [`npysort`](https://github.com/numpy/numpy/tree/main/numpy/_core/src/npysort). A seguir, uma versão didática simplificada da lógica usada:
+
+```cpp
+template<typename T>
+void quicksort(T* arr, int left, int right) {
+    if (left >= right) return;
+
+    T pivot = arr[right];
+    int i = left - 1;
+
+    for (int j = left; j < right; ++j) {
+        if (arr[j] <= pivot) {
+            ++i;
+            std::swap(arr[i], arr[j]);
+        }
+    }
+    std::swap(arr[i + 1], arr[right]);
+
+    quicksort(arr, left, i);
+    quicksort(arr, i + 2, right);
+}
+```
+
 O `np.sort()` permite escolher o algoritmo por meio do parâmetro `kind`. O QuickSort é acessado via `kind='quicksort'`. Ele é rápido, mas não estável.
 
 ```python
