@@ -197,7 +197,7 @@ kind : {'quicksort', 'mergesort', 'heapsort', 'stable'}, default 'quicksort'
 
 | Biblioteca | Complexidade                        | Ordenação Global                    | Controle de `kind`         | Observações                                         |
 |------------|-------------------------------------|--------------------------------------|-----------------------------|-----------------------------------------------------|
-| NumPy      | O(n log n)                          | Sim                                  | Sim                         | Rápido e direto, implementado em C                  |
+| NumPy      | O(n log n)                          | Sim                                  | Sim                         | Rápido e direto, implementado em C++                |
 | Pandas     | O(n log n)                          | Sim                                  | Sim                         | Mais lento devido à estrutura e indexação           |
 | Dask       | O(n log m) ou O(n log n + shuffle)  | Não (`map_partitions`) / Sim (`sort_values`) | Parcial (via Pandas)         | Paralelo, mas ordenação global exige custo de shuffle |
 
