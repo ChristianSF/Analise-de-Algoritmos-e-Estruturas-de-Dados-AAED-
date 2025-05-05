@@ -195,11 +195,12 @@ kind : {'quicksort', 'mergesort', 'heapsort', 'stable'}, default 'quicksort'
 
 ## Resumo Comparativo
 
-| Biblioteca | Complexidade                        | Ordenação Global                    | Controle de `kind`         | Observações                                         |
-|------------|-------------------------------------|--------------------------------------|-----------------------------|-----------------------------------------------------|
-| NumPy      | O(n log n)                          | Sim                                  | Sim                         | Rápido e direto, implementado em C++                |
-| Pandas     | O(n log n)                          | Sim                                  | Sim                         | Mais lento devido à estrutura e indexação           |
-| Dask       | O(n log m) ou O(n log n + shuffle)  | Não (`map_partitions`) / Sim (`sort_values`) | Parcial (via Pandas)         | Paralelo, mas ordenação global exige custo de shuffle |
+| Biblioteca         | Complexidade                        | Ordenação Global                    | Controle de `kind`         | Observações                                                        |
+|--------------------|-------------------------------------|--------------------------------------|-----------------------------|--------------------------------------------------------------------|
+| Manual QuickSort   | O(n log n) *(médio)* / O(n²) *(pior caso)* | Sim                                  | Não                         | Didático; útil para aprendizado, mas muito lento para produção     |
+| NumPy              | O(n log n)                          | Sim                                  | Sim                         | Rápido e direto, implementado em C++ com arrays contíguos          |
+| Pandas             | O(n log n)                          | Sim                                  | Sim                         | Mais lento devido à estrutura de DataFrame e overhead de indexação |
+| Dask               | O(n log m) ou O(n log n + shuffle)  | Não (`map_partitions`) / Sim (`sort_values`) | Parcial (via Pandas)         | Paraleliza bem, mas ordenação global exige shuffle custoso         |
 
 ## Tipos de Entrada
 - Números aleatórios
