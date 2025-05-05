@@ -267,18 +267,18 @@ A seguir, apresentamos os boxplots de tempo de execução para cada algoritmo, d
 
 ---
 
-## Resumo de Memória e Custos Médios por Biblioteca e Tipo de Dado
+## Resumo de Memória por Biblioteca e Tipo de Dado
 
-| Biblioteca       | Tipo     | Memória Média (MB) | AWS (US$/exec) | GCP (US$/exec) | Azure (US$/exec) |
-|------------------|----------|--------------------|----------------|----------------|------------------|
-| Manual QuickSort | números  | 1720.389           | 0.001252       | 0.000874       | 0.000678         |
-| Manual QuickSort | strings  | 1739.571           | 0.001894       | 0.001322       | 0.001026         |
-| NumPy            | números  | 1220.879           | 0.000010       | 0.000007       | 0.000006         |
-| NumPy            | strings  | 1256.312           | 0.000381       | 0.000266       | 0.000206         |
-| Pandas           | números  | 1802.104           | 0.000025       | 0.000017       | 0.000013         |
-| Pandas           | strings  | 1830.745           | 0.000765       | 0.000536       | 0.000416         |
-| Dask             | números  | 1828.586           | 0.000035       | 0.000024       | 0.000019         |
-| Dask             | strings  | 1929.573           | 0.000084       | 0.000059       | 0.000046         |
+| Biblioteca       | Tipo     | Memória Média (MB) |
+|------------------|----------|--------------------|
+| Manual QuickSort | números  | 1720.389           | 
+| Manual QuickSort | strings  | 1739.571           | 
+| NumPy            | números  | 1220.879           | 
+| NumPy            | strings  | 1256.312           | 
+| Pandas           | números  | 1802.104           | 
+| Pandas           | strings  | 1830.745           | 
+| Dask             | números  | 1828.586           |
+| Dask             | strings  | 1929.573           |
 
 
 ## Consumo Médio de Memória por Biblioteca e Tipo de Dado
@@ -325,25 +325,26 @@ A tabela a seguir mostra o **custo médio por execução** em cada provedor de n
 
 ---
 
-## Conclusão e Recomendações
+## Conclusão
 
-Ao longo deste experimento, comparamos quatro abordagens de ordenação em Python — Manual QuickSort, NumPy, Pandas e Dask — sobre dois tipos de dados (vetores de floats e listas de strings), medindo **tempo**, **memória** e **custo** em três provedores de nuvem (AWS, GCP e Azure).
+Neste experimento, comparamos quatro abordagens de ordenação em Python — QuickSort manual, NumPy, Pandas e Dask — aplicadas a dois tipos de dados (números `float` e strings), analisando tempo de execução, uso de memória e aplicabilidade.
 
-| Critério                | Melhor Escolha        | Observações                                                                                                                                          |
-|-------------------------|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Velocidade (números)**    | **NumPy**              | Median ~0.39 s; algorítmico otimizado em C.                                                                                                          |
-| **Velocidade (strings)**    | **Dask**               | Median ~3.16 s; paralelismo reduz variação e acelera objetos Python.                                                                                 |
-| **Uso de Memória**      | **NumPy**              | ~1 221 MB (números) e ~1 448 MB (strings); arrays contíguos, sem overhead de Python.                                                                  |
-| **Custo por Execução**  | **NumPy + Azure**      | NumPy gera o menor custo/execução; Azure tem as menores tarifas (até ~45 % mais barato que AWS).                                                       |
-| **Equilíbrio Geral**    | **Pandas**             | Boa legibilidade e integração com DataFrame, desempenho intermediário (1–2 s para números, ~30 s para strings) a custo moderado.                      |
-| **Uso Didático**        | **Manual QuickSort**   | Excelente para entender o algoritmo, mas inviável em escala: ~47 s (números) a ~71 s (strings), maior consumo de memória e custo mais alto.            |
+### Resumo dos Resultados
+
+| Critério                | Melhor Escolha         | Justificativa                                                                 |
+|------------------------|------------------------|-------------------------------------------------------------------------------|
+| Velocidade (floats)    | NumPy                  | Tempo mediano de ~0.39 s; implementação otimizada em C++ com arrays contíguos. |
+| Velocidade (strings)   | Dask                   | Mediana de ~3.16 s; aproveita paralelismo para acelerar a ordenação de objetos Python. |
+| Uso de Memória         | NumPy                  | Menor uso (~1221 MB para números, ~1448 MB para strings); sem overhead do interpretador Python. |
+| Equilíbrio Geral       | Pandas                 | Combina boa legibilidade e integração com DataFrames com desempenho intermediário. |
+| Valor Didático         | QuickSort Manual       | Ideal para aprendizado do algoritmo; inviável em larga escala (47–71 s e alto uso de memória). |
 
 ### Recomendação Final
 
-- **Para produção numérica de alto desempenho e otimização de custos**, use **NumPy** em conjunto com instâncias **Azure** para ordenação de vetores de floats.  
-- **Para cargas heterogêneas que envolvem muitas strings** e onde paralelismo importa (e CPU/memória não são limitantes), prefira **Dask** em Azure/GCP.  
-- **Para análises ad hoc e manipulação de DataFrames**, o **Pandas** é o compromisso certo entre usabilidade e desempenho.  
-- **Reserve a implementação manual de QuickSort** apenas para demonstrações didáticas e depuração conceitual — em cenários reais, bibliotecas otimizadas superam o Python puro. Pandas teve desempenho intermediário em tempo, mas o uso de memória pode variar.
+- Para ordenações numéricas de alto desempenho, utilize **NumPy** — é rápido, eficiente e usa menos memória.
+- Para grandes volumes de strings ou quando o paralelismo é importante, **Dask** é uma excelente escolha.
+- Para análises exploratórias e tarefas com DataFrames, **Pandas** oferece o melhor equilíbrio entre usabilidade e performance.
+- Para fins educacionais ou depuração de algoritmos, o **QuickSort manual** é valioso, mas não recomendo para uso prático.
 
 ---
 
