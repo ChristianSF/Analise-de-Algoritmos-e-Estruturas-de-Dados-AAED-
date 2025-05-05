@@ -221,6 +221,13 @@ kind : {'quicksort', 'mergesort', 'heapsort', 'stable'}, default 'quicksort'
 | Dask               | números  | 1.314070        | 1.311920          | 1.227271         | 1.412463         |
 | Dask               | strings  | 3.157377        | 3.162664          | 3.085290         | 3.259809         |
 
+**Análise dos Resultados**:
+
+- **NumPy (números)** é, de longe, o mais rápido, com mediana de apenas **~0.39 segundos** — resultado da implementação em C++.
+- Para **strings**, **Dask** é o mais eficiente (**~3.16 s de mediana**), provavelmente por aproveitar paralelismo em operações com objetos Python.
+- **Pandas** teve desempenho intermediário: bom com números (**~1.34 s**) e mais lento com strings (**~30.3 s**).
+- A implementação **manual do QuickSort**, apesar de didática, é a mais lenta em todos os cenários, com **tempos acima de 46 s para números** e **70 s para strings**.
+
 ---
 
 ## Gráfico de Tempo Médio de Execução
@@ -269,17 +276,19 @@ A seguir, apresentamos os boxplots de tempo de execução para cada algoritmo, d
 
 ## Resumo de Memória por Biblioteca e Tipo de Dado
 
-| Biblioteca       | Tipo     | Memória Média (MB) |
-|------------------|----------|--------------------|
-| Manual QuickSort | números  | 1720.389           | 
-| Manual QuickSort | strings  | 1739.571           | 
-| NumPy            | números  | 1220.879           | 
-| NumPy            | strings  | 1256.312           | 
-| Pandas           | números  | 1802.104           | 
-| Pandas           | strings  | 1830.745           | 
-| Dask             | números  | 1828.586           |
-| Dask             | strings  | 1929.573           |
+| Biblioteca        | Tipo     | Memória Média (MB) | Diferença (%) em relação ao menor uso |
+|------------------|----------|---------------------|----------------------------------------|
+| Manual QuickSort | números  | 1720.389            | +40.91%                                |
+| Manual QuickSort | strings  | 1739.571            | +42.46%                                |
+| NumPy            | números  | 1220.879            | 0.00%                                  |
+| NumPy            | strings  | 1256.312            | +2.90%                                 |
+| Pandas           | números  | 1802.104            | +47.61%                                |
+| Pandas           | strings  | 1830.745            | +50.00%                                |
+| Dask             | números  | 1828.586            | +49.79%                                |
+| Dask             | strings  | 1929.573            | +58.01%                                |
 
+
+**Conclusão**: NumPy apresentou o melhor desempenho em uso de memória para ambos os tipos de dados, sendo especialmente eficiente ao lidar com números. Dask e Pandas, embora vantajosos em outros critérios, podem consumir até 58% mais memória — o que deve ser considerado em ambientes com restrições de recursos.
 
 ## Consumo Médio de Memória por Biblioteca e Tipo de Dado
 
