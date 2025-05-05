@@ -308,6 +308,8 @@ Se o objetivo for minimizar o footprint de memória, o **NumPy** é a escolha ma
 
 A tabela a seguir mostra o **custo médio por execução** em cada provedor de nuvem (USD), para cada biblioteca e tipo de dado:
 
+**Dolar a R$5,10** 
+
 | Biblioteca         | Tipo     | AWS (US$/exec) | GCP (US$/exec) | Azure (US$/exec) |
 |--------------------|----------|----------------|----------------|------------------|
 | **Dask**           | números  | 0.000035       | 0.000024       | 0.000019         |
@@ -318,6 +320,27 @@ A tabela a seguir mostra o **custo médio por execução** em cada provedor de n
 | **NumPy**          | strings  | 0.000381       | 0.000266       | 0.000206         |
 | **Pandas**         | números  | 0.000025       | 0.000017       | 0.000013         |
 | **Pandas**         | strings  | 0.000765       | 0.000536       | 0.000416         |
+
+## 📊 Custo Médio por Algoritmo e Tipo de Dado (por Provedor)
+
+Os gráficos abaixo apresentam o **custo médio de execução em reais (R$)** para cada algoritmo (biblioteca) e tipo de dado, separados por provedor de nuvem. Os valores representam uma média das execuções registradas.
+
+<p align="center">
+  <img src="imgs/custo_medio_aws.png" alt="Custo Médio AWS" width="30%"/>
+  <img src="imgs/custo_medio_gcp.png" alt="Custo Médio GCP" width="30%"/>
+  <img src="imgs/custo_medio_azure.png" alt="Custo Médio Azure" width="30%"/>
+</p>
+
+**Legenda:**
+- O eixo X representa o algoritmo utilizado (implementação ou biblioteca).
+- As cores representam o tipo de dado ordenado (ex: números, strings).
+- O eixo Y mostra o custo médio em reais (R$).
+- Os valores nas barras indicam o custo médio convertido em centavos (ex: `R$ 0,29` = 29 centavos).
+
+**Resumo dos Custos Médios por Provedor:**
+- **AWS:** R$ 0,29
+- **GCP:** R$ 0,20
+- **Azure:** R$ 0,16
 
 ---
 
