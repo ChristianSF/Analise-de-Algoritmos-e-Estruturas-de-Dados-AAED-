@@ -3,13 +3,11 @@ G = nx.Graph()
 for i in range(len(sentencas)):
     G.add_node(i, frase=sentencas[i], embedding=embeddings[i])
 
-# Adiciona arestas com pesos baseados na distância cosseno
 for i in range(len(sentencas)):
     for j in range(i + 1, len(sentencas)):
         dist = cosine_distances([embeddings[i]], [embeddings[j]])[0][0]
         G.add_edge(i, j, weight=dist)
 
-# 🔍 Busca K vizinhos mais próximos
 def knn_busca(grafo, idx_origem, k=3):
     distancias = []
     origem = grafo.nodes[idx_origem]['embedding']
